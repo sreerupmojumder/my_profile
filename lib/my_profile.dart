@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class MyProfile extends StatelessWidget {
   const MyProfile({super.key});
@@ -84,7 +85,7 @@ class MyProfile extends StatelessWidget {
                 BgColor: Colors.lightGreen.shade50,
                 icon: Icons.school,
                 title: 'Education',
-                subtitle: 'BSc in Computer Science',
+                subtitle: 'BSc in CSE\nBUBT',
                 iconTitleColor: Colors.lightGreen,
               ),
 
@@ -98,7 +99,41 @@ class MyProfile extends StatelessWidget {
                 subtitle: 'Flutter, Dart, Firebase, Git,\n REST API, HTML, CSS',
               ),
 
+              SizedBox(height: 20),
+
               //Social media links
+              Column(
+                children: [
+                  const Text(
+                    "Connect With Me",
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                      color: Color(0xFF2E3E5C), // ছবির মতো গাঢ় নীল রঙ
+                    ),
+                  ),
+                  const SizedBox(height: 20),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      socialIcon(
+                        Icons.facebook,
+                        "Facebook",
+                        const Color(0xFF3B5998),
+                      ),
+
+                      socialIcon(
+                        FontAwesomeIcons.github,
+                        "GitHub",
+                        const Color(0xFF24292E),
+                      ),
+
+                      socialIcon(Icons.email, "Email", const Color(0xFFEA4335)),
+                    ],
+                  ),
+                ],
+              ),
+
               //facebook
               //github
               //email
@@ -108,6 +143,22 @@ class MyProfile extends StatelessWidget {
       ),
     );
   }
+}
+
+Widget socialIcon(dynamic icon, String label, Color color) {
+  return Column(
+    children: [
+      CircleAvatar(
+        radius: 25,
+        backgroundColor: color,
+        child: (icon is IconData)
+            ? Icon(icon, color: Colors.white, size: 30)
+            : FaIcon(icon, color: Colors.white, size: 30),
+      ),
+      const SizedBox(height: 8),
+      Text(label),
+    ],
+  );
 }
 
 class InfoCard extends StatelessWidget {
