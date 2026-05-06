@@ -133,7 +133,8 @@ class MyProfile extends StatelessWidget {
                     ),
                     const SizedBox(height: 20),
                     Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      spacing: 45,
+                      mainAxisAlignment: .center,
                       children: [
                         socialIcon(
                           Icons.facebook,
